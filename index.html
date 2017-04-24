@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>VUE：前端mvvm框架</title>
+        <link href="index.css" rel="stylesheet"/>
+        <script src="libs/vue.min.js"></script>
+    </head>
+
+    <body>
+
+        <div id="test">
+
+            <p>{{title}}</p>
+
+            <ul v-on:scroll="onscroll" v-on:click="onclick">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ul>
+            
+         </div>
+         
+         
+			<script>
+
+            var vm = new Vue({
+
+                el: '#test',
+
+                data: 
+                {
+                    title: '这是一个列表'
+                },
+
+                methods: 
+                {
+                    onscroll:function(e) 
+                    {
+                        console.log(e.target.scrollTop/(e.target.scrollHeight-e.target.clientHeight))
+                    },
+
+                    onclick:function(e)
+                    {
+                        e.target.remove()
+                    }
+                }
+            })
+
+         </script>
+    </body>
+</html>
